@@ -71,7 +71,7 @@ const Product = () => {
                 className="img-fluid"
                 src={product.image}
                 alt={product.title}
-                width="400px"
+                width="100px"
                 height="400px"
               />
             </div>
