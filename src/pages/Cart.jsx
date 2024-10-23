@@ -1,10 +1,15 @@
-import React from "react";
-import { Footer, Navbar } from "../components";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, delCart } from "../redux/action";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Layout from "../components/Layout";
+import { fireDB } from "../firebase/firebaseConfig";
+import { addDoc, collection } from "firebase/firestore";
+import Modal from "./Modal";
 
 const Cart = () => {
+
   const state = useSelector((state) => state.handleCart);
   const dispatch = useDispatch();
 
@@ -25,9 +30,11 @@ const Cart = () => {
 
   const addItem = (product) => {
     dispatch(addCart(product));
+    toast.success("Product added successfully")
   };
   const removeItem = (product) => {
     dispatch(delCart(product));
+    toast.error("Product removed successfully")
   };
 
   const ShowCart = () => {
@@ -41,6 +48,97 @@ const Cart = () => {
     state.map((item) => {
       return (totalItems += item.qty);
     });
+
+    console.log(subtotal + shipping)
+    useEffect(() => {
+      localStorage.setItem('cart', JSON.stringify(state));
+    }, [state])
+
+    const [name, setName] = useState("")
+    const [address, setAddress] = useState("");
+    const [pincode, setPincode] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
+
+    const checkout = async () => {
+      if (name == "" || address == "" || pincode == "" || phoneNumber == "") {
+        return toast.error("All fields are required", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        })
+      }
+
+      const addressInfo = {
+        name,
+        address,
+        pincode,
+        phoneNumber,
+        date: new Date().toLocaleString(
+          "en-US",
+          {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          }
+        )
+      }
+
+      var options = {
+        key: "",// Enter the Key ID generated from the Dashboard
+        key_secret: "",
+        amount: (subtotal + shipping) * 100,
+        currency: "INR",
+        order_receipt: 'order_rcptid_' + name,
+        name: "React E-Commerce",
+        description: "for testing purpose",
+        handler: function (response) {
+          console.log("Response: ", response)
+          toast.success('Payment Successful')
+
+          const paymentId = response.razorpay_payment_id;
+
+          const orderInfo = {
+            state,
+            addressInfo,
+            date: new Date().toLocaleString(
+              "en-US",
+              {
+                month: "short",
+                day: "2-digit",
+                year: "numeric",
+              }
+            ),
+            email: JSON.parse(localStorage.getItem("user")).user.email,
+            userid: JSON.parse(localStorage.getItem("user")).user.uid,
+            paymentId
+          }
+          try {
+            const orderRef = collection(fireDB, 'order');
+            addDoc(orderRef, orderInfo)
+            console.log("OrderInfo: ", orderInfo)
+
+          } catch (error) {
+            console.log(error);
+
+          }
+        },
+
+        theme: {
+          color: "#3399cc"
+        }
+      };
+
+      var pay = new window.Razorpay(options);
+      pay.open();
+      console.log("Pay: ", pay)
+
+    }
+
     return (
       <>
         <section className="h-100 gradient-custom">
@@ -78,7 +176,6 @@ const Cart = () => {
                               {/* <p>Color: blue</p>
                               <p>Size: M</p> */}
                             </div>
-
                             <div className="col-lg-4 col-md-6">
                               <div
                                 className="d-flex mb-4"
@@ -145,12 +242,17 @@ const Cart = () => {
                       </li>
                     </ul>
 
-                    <Link
-                      to="/checkout"
-                      className="btn btn-dark btn-lg btn-block"
-                    >
-                      Go to checkout
-                    </Link>
+                    <Modal
+                      name={name}
+                      address={address}
+                      pincode={pincode}
+                      phoneNumber={phoneNumber}
+                      setName={setName}
+                      setAddress={setAddress}
+                      setPincode={setPincode}
+                      setPhoneNumber={setPhoneNumber}
+                      checkout={checkout}
+                    />
                   </div>
                 </div>
               </div>
@@ -163,13 +265,13 @@ const Cart = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="container my-3 py-3">
-        <h1 className="text-center">Cart</h1>
-        <hr />
-        {state.length > 0 ? <ShowCart /> : <EmptyCart />}
-      </div>
-      <Footer />
+      <Layout>
+        <div className="container my-3 py-3">
+          <h1 className="text-center">Cart</h1>
+          <hr />
+          {state.length > 0 ? <ShowCart /> : <EmptyCart />}
+        </div>
+      </Layout>
     </>
   );
 };

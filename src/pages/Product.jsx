@@ -4,8 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
-
-import { Footer, Navbar } from "../components";
+import { toast } from "react-toastify";
+import Layout from "../components/Layout";
 
 const Product = () => {
   const { id } = useParams();
@@ -18,6 +18,7 @@ const Product = () => {
 
   const addProduct = (product) => {
     dispatch(addCart(product));
+    toast.success("Product added successfully")
   };
 
   useEffect(() => {
@@ -131,21 +132,22 @@ const Product = () => {
             {similarProducts.map((item) => {
               return (
                 <div key={item.id} className="card mx-4 text-center">
-                  <img
-                    className="card-img-top p-3"
-                    src={item.image}
-                    alt="Card"
-                    height={300}
-                    width={300}
-                  />
+                  <Link to={"/product/" + item.id}>
+                    <img
+                      className="card-img-top p-3"
+                      src={item.image}
+                      alt="Card"
+                      height={300}
+                      width={300}
+                    /></Link>
                   <div className="card-body">
                     <h5 className="card-title">
                       {item.title.substring(0, 15)}...
                     </h5>
                   </div>
-                  {/* <ul className="list-group list-group-flush">
-                    <li className="list-group-item lead">${product.price}</li>
-                  </ul> */}
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item lead">${item.price}</li>
+                  </ul>
                   <div className="card-body">
                     <Link
                       to={"/product/" + item.id}
@@ -170,23 +172,23 @@ const Product = () => {
   };
   return (
     <>
-      <Navbar />
-      <div className="container">
-        <div className="row">{loading ? <Loading /> : <ShowProduct />}</div>
-        <div className="row my-5 py-5">
-          <div className="d-none d-md-block">
-          <h2 className="">You may also Like</h2>
-            <Marquee
-              pauseOnHover={true}
-              pauseOnClick={true}
-              speed={50}
-            >
-              {loading2 ? <Loading2 /> : <ShowSimilarProduct />}
-            </Marquee>
+      <Layout>
+        <div className="container">
+          <div className="row">{loading ? <Loading /> : <ShowProduct />}</div>
+          <div className="row my-5 py-5">
+            <div className="d-none d-md-block">
+              <h2 className="">You may also Like</h2>
+              <Marquee
+                pauseOnHover={true}
+                pauseOnClick={true}
+                speed={50}
+              >
+                {loading2 ? <Loading2 /> : <ShowSimilarProduct />}
+              </Marquee>
+            </div>
           </div>
         </div>
-      </div>
-      <Footer />
+      </Layout>
     </>
   );
 };

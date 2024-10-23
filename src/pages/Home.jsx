@@ -1,12 +1,28 @@
-import { Navbar, Main, Product, Footer } from "../components";
+// import { Navbar, Main, Product, Footer } from "../components";
+
+// function Home() {
+//   return (
+//     <>
+//       <Navbar />
+//       <Main />
+//       <Product />
+//       <Footer />
+//     </>
+//   )
+// }
+
+// export default Home
+
+import { Main, Product } from "../components";
+import Layout from "../components/Layout";
 
 function Home() {
   return (
     <>
-      <Navbar />
-      <Main />
-      <Product />
-      <Footer />
+      <Layout>
+        <Main />
+        <Product />
+      </Layout>
     </>
   )
 }

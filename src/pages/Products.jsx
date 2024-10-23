@@ -1,12 +1,13 @@
 import React from 'react'
-import { Footer, Navbar, Product } from "../components"
+import { Product } from "../components"
+import Layout from '../components/Layout'
 
 const Products = () => {
   return (
     <>
-      <Navbar />
-      <Product />
-      <Footer />
+      <Layout>
+        <Product />
+      </Layout>
     </>
   )
 }

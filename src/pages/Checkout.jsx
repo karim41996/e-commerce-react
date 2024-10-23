@@ -1,7 +1,7 @@
 import React from "react";
-import { Footer, Navbar } from "../components";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
 
@@ -284,13 +284,13 @@ const Checkout = () => {
   };
   return (
     <>
-      <Navbar />
-      <div className="container my-3 py-3">
-        <h1 className="text-center">Checkout</h1>
-        <hr />
-        {state.length ? <ShowCheckout /> : <EmptyCart />}
-      </div>
-      <Footer />
+      <Layout>
+        <div className="container my-3 py-3">
+          <h1 className="text-center">Checkout</h1>
+          <hr />
+          {state.length ? <ShowCheckout /> : <EmptyCart />}
+        </div>
+      </Layout>
     </>
   );
 };
