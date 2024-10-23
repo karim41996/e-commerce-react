@@ -4,6 +4,13 @@ import { useSelector } from 'react-redux'
 
 const Navbar = () => {
     const state = useSelector(state => state.handleCart)
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    const logout = () => {
+        localStorage.clear('user');
+        window.location.href = '/login'
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top">
             <div className="container">
@@ -20,6 +27,13 @@ const Navbar = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/product">Products</NavLink>
                         </li>
+                        {/* Add admin email id in '' */}
+                        {user?.user?.email === 'janavimi28@gmail.com' ?
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/admin">Admin</NavLink>
+                            </li>
+                            : ""}
+
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/about">About</NavLink>
                         </li>
@@ -29,12 +43,14 @@ const Navbar = () => {
                     </ul>
                     <div className="buttons text-center">
                         <NavLink to="/login" className="btn btn-outline-dark m-2"><i className="fa fa-sign-in-alt mr-1"></i> Login</NavLink>
-                        <NavLink to="/register" className="btn btn-outline-dark m-2"><i className="fa fa-user-plus mr-1"></i> Register</NavLink>
-                        <NavLink to="/cart" className="btn btn-outline-dark m-2"><i className="fa fa-cart-shopping mr-1"></i> Cart ({state.length}) </NavLink>
+                        {user ? <a onClick={logout} className="btn btn-outline-dark m-2" ><i className="fa fa-sign-in-alt mr-1"></i> Logout </a>
+                            : ""}
+                        {/* <NavLink to="/register" className="btn btn-outline-dark m-2"><i className="fa fa-user-plus mr-1"></i> Register</NavLink> */}
+                        {user ?
+                            <NavLink to="/cart" className="btn btn-outline-dark m-2"><i className="fa fa-cart-shopping mr-1"></i> Cart ({state.length}) </NavLink>
+                            : ""}
                     </div>
                 </div>
-
-
             </div>
         </nav>
     )
