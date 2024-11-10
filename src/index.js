@@ -17,6 +17,7 @@ import {
   Register,
   Checkout,
   PageNotFound,
+  addProduct,
 } from "./pages";
 import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
