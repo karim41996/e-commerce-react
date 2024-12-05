@@ -2,6 +2,8 @@
 
 A Ecommerce Website made with React.js Framework.
 
+# Tech Stack
+-React.js
 
 ## Demo
 
