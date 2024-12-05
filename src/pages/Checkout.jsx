@@ -1,18 +1,21 @@
 import React from "react";
-import { Footer, Navbar } from "../components";
+import { Navbar } from "../components";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
+  const { t } = useTranslation();
 
   const EmptyCart = () => {
     return (
       <div className="container">
         <div className="row">
           <div className="col-md-12 py-5 bg-light text-center">
-            <h4 className="p-3 display-5">No item in Cart</h4>
+            <h4 className="p-3 display-5">{t("checkOut.emptyBasket")}</h4>
             <Link to="/" className="btn btn-outline-dark mx-4">
-              <i className="fa fa-arrow-left"></i> Continue Shopping
+              <i className="fa fa-arrow-left"></i>{t("checkOut.continue")} {t("checkOut.continue")}
             </Link>
           </div>
         </div>
@@ -38,23 +41,23 @@ const Checkout = () => {
             <div className="col-md-5 col-lg-4 order-md-last">
               <div className="card mb-4">
                 <div className="card-header py-3 bg-light">
-                  <h5 className="mb-0">Order Summary</h5>
+                  <h5 className="mb-0">{t("checkOut.orderSummary")}</h5>
                 </div>
                 <div className="card-body">
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                      Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                    {t("checkOut.products")} ({totalItems})<span>{Math.round(subtotal)} ₮</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center px-0">
-                      Shipping
-                      <span>${shipping}</span>
+                    {t("checkOut.shipping")}
+                      <span>{shipping} ₮</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                       <div>
-                        <strong>Total amount</strong>
+                        <strong>{t("checkOut.totalAmount")}</strong>
                       </div>
                       <span>
-                        <strong>${Math.round(subtotal + shipping)}</strong>
+                        <strong>{Math.round(subtotal + shipping)} ₮</strong>
                       </span>
                     </li>
                   </ul>
@@ -64,14 +67,14 @@ const Checkout = () => {
             <div className="col-md-7 col-lg-8">
               <div className="card mb-4">
                 <div className="card-header py-3">
-                  <h4 className="mb-0">Billing address</h4>
+                  <h4 className="mb-0">{t("checkOut.billingAddress")}</h4>
                 </div>
                 <div className="card-body">
                   <form className="needs-validation" novalidate>
                     <div className="row g-3">
                       <div className="col-sm-6 my-1">
                         <label for="firstName" className="form-label">
-                          First name
+                        {t("checkOut.firstName")}
                         </label>
                         <input
                           type="text"
@@ -81,13 +84,14 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Valid first name is required.
+                        {t("checkOut.validFirstName")}
+
                         </div>
                       </div>
 
                       <div className="col-sm-6 my-1">
                         <label for="lastName" className="form-label">
-                          Last name
+                       {t("checkOut.lastName")}
                         </label>
                         <input
                           type="text"
@@ -97,13 +101,13 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Valid last name is required.
+                        {t("checkOut.validLastName")}
                         </div>
                       </div>
 
                       <div className="col-12 my-1">
                         <label for="email" className="form-label">
-                          Email
+                        {t("checkOut.email")}
                         </label>
                         <input
                           type="email"
@@ -113,14 +117,14 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Please enter a valid email address for shipping
-                          updates.
+                        {t("checkOut.validEmail")}
+                          
                         </div>
                       </div>
 
                       <div className="col-12 my-1">
                         <label for="address" className="form-label">
-                          Address
+                        {t("checkOut.address")}
                         </label>
                         <input
                           type="text"
@@ -130,14 +134,13 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Please enter your shipping address.
+                        {t("checkOut.enterShipping")}
                         </div>
                       </div>
 
                       <div className="col-12">
                         <label for="address2" className="form-label">
-                          Address 2{" "}
-                          <span className="text-muted">(Optional)</span>
+                        {t("checkOut.address2")}{" "}  
                         </label>
                         <input
                           type="text"
@@ -149,35 +152,35 @@ const Checkout = () => {
 
                       <div className="col-md-5 my-1">
                         <label for="country" className="form-label">
-                          Country
+                        {t("checkOut.country")}
                         </label>
                         <br />
                         <select className="form-select" id="country" required>
-                          <option value="">Choose...</option>
-                          <option>India</option>
+                          <option value=""> {t("checkOut.choose")}</option>
+                          <option>Mongolia</option>
                         </select>
                         <div className="invalid-feedback">
-                          Please select a valid country.
+                        {t("checkOut.validCountry")}
                         </div>
                       </div>
 
                       <div className="col-md-4 my-1">
                         <label for="state" className="form-label">
-                          State
+                        {t("checkOut.state")}
                         </label>
                         <br />
                         <select className="form-select" id="state" required>
-                          <option value="">Choose...</option>
-                          <option>Punjab</option>
+                          <option value=""> {t("checkOut.choose")}</option>
+                          <option>Ulaanbaatar</option>
                         </select>
                         <div className="invalid-feedback">
-                          Please provide a valid state.
+                        {t("checkOut.validState")}
                         </div>
                       </div>
 
                       <div className="col-md-3 my-1">
                         <label for="zip" className="form-label">
-                          Zip
+                        {t("checkOut.zip")}
                         </label>
                         <input
                           type="text"
@@ -187,19 +190,19 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Zip code required.
+                        {t("checkOut.validZip")}
                         </div>
                       </div>
                     </div>
 
                     <hr className="my-4" />
 
-                    <h4 className="mb-3">Payment</h4>
+                    <h4 className="mb-3"> {t("checkOut.payment")}</h4>
 
                     <div className="row gy-3">
                       <div className="col-md-6">
                         <label for="cc-name" className="form-label">
-                          Name on card
+                        {t("checkOut.nameOnCard")}
                         </label>
                         <input
                           type="text"
@@ -209,16 +212,16 @@ const Checkout = () => {
                           required
                         />
                         <small className="text-muted">
-                          Full name as displayed on card
+                        {t("checkOut.fullNamePlaceHolder")}
                         </small>
                         <div className="invalid-feedback">
-                          Name on card is required
+                        {t("checkOut.validCardName")}
                         </div>
                       </div>
 
                       <div className="col-md-6">
                         <label for="cc-number" className="form-label">
-                          Credit card number
+                        {t("checkOut.creditCardNumber")}
                         </label>
                         <input
                           type="text"
@@ -228,13 +231,13 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Credit card number is required
+                        {t("checkOut.validCreditCardNumber")}
                         </div>
                       </div>
 
                       <div className="col-md-3">
                         <label for="cc-expiration" className="form-label">
-                          Expiration
+                        {t("checkOut.expiration")}
                         </label>
                         <input
                           type="text"
@@ -244,13 +247,13 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Expiration date required
+                        {t("checkOut.validExpiration")}
                         </div>
                       </div>
 
                       <div className="col-md-3">
                         <label for="cc-cvv" className="form-label">
-                          CVV
+                        {t("checkOut.cvv")}
                         </label>
                         <input
                           type="text"
@@ -260,7 +263,7 @@ const Checkout = () => {
                           required
                         />
                         <div className="invalid-feedback">
-                          Security code required
+                        {t("checkOut.validCvv")}
                         </div>
                       </div>
                     </div>
@@ -271,7 +274,7 @@ const Checkout = () => {
                       className="w-100 btn btn-primary "
                       type="submit" disabled
                     >
-                      Continue to checkout
+                      {t("checkOut.continueCheckout")}
                     </button>
                   </form>
                 </div>
@@ -286,11 +289,10 @@ const Checkout = () => {
     <>
       <Navbar />
       <div className="container my-3 py-3">
-        <h1 className="text-center">Checkout</h1>
+        <h1 className="text-center">{t("checkOut.checkOut")}</h1>
         <hr />
         {state.length ? <ShowCheckout /> : <EmptyCart />}
       </div>
-      <Footer />
     </>
   );
 };

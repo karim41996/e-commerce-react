@@ -1,0 +1,102 @@
+{
+  "login": {
+    "welcome": "저희 앱에 오신 것을 환영합니다!",
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "navbar": {
+    "name": "A4YOU&ME STORE",
+    "home": "홈",
+    "products": "제품",
+    "about": "정보",
+    "contact": "연락처",
+    "login": "로그인",
+    "register": "등록",
+    "cart": "카트"
+  },
+  "home": {
+    "title": "새로운 시즌 출시",
+    "description": "이것은 아래에 보조 텍스트가 있는 더 넓은 카드로, 추가 콘텐츠로 자연스럽게 이어집니다. 이 콘텐츠는 조금 더 깁니다."
+  },
+  "productComp": {
+    "latestProducts": "새 제품",
+    "all": "모두",
+    "beauty": "미용",
+    "health": "건강",
+    "detail": "세부 사항",
+    "basket": "장바구니에 담기"
+  },
+  "product": {
+    "addToBasket": "장바구니에 담기",
+    "goToBasket": "장바구니로 이동",
+    "detail": "상세",
+    "youMayAlsoLike": "당신도 좋아할 수 있습니다"
+  },
+  "pageNotFound": {
+    "errorCode": "404",
+    "errorName": "페이지를 찾을 수 없음",
+    "description": "홈으로 돌아가기"
+  },
+  "checkOut": {
+    "emptyBasket": "장바구니에 항목이 없습니다",
+    "checkOut": "결제",
+    "continue": "쇼핑 계속하기",
+    "orderSummary": "주문 요약",
+    "products": "제품",
+    "shipping": "배송",
+    "totalAmount": "총 금액",
+    "billingAddress": "청구 주소",
+    "firstName": "이름",
+    "validFirstName": "유효한 이름이 필요합니다.",
+    "lastName": "성",
+    "validLastName": "유효한 성이 필요합니다.",
+    "email": "이메일",
+    "validEmail": "배송 업데이트를 위해 유효한 이메일 주소를 입력하세요.",
+    "address": "주소",
+    "enterShipping": "배송 주소를 입력하세요.",
+    "address2": "주소 2 (선택)",
+    "country": "국가",
+    "choose": "선택...",
+    "validCountry": "유효한 국가를 선택하세요.",
+    "state": "주",
+    "validState": "유효한 주를 입력하세요.",
+    "zip": "우편번호",
+    "validZip": "우편번호가 필요합니다.",
+    "payment": "결제",
+    "nameOnCard": "카드에 표시된 이름",
+    "fullNamePlaceHolder": "카드에 표시된 전체 이름",
+    "validCardName": "카드에 표시된 이름이 필요합니다.",
+    "creditCardNumber": "신용카드 번호",
+    "validCreditCardNumber": "신용카드 번호가 필요합니다.",
+    "expiration": "만료",
+    "validExpiration": "만료일",
+    "cvv": "CVV",
+    "validCvv": "보안 코드가 필요합니다.",
+    "continueCheckout": "계속해서 결제하세요"
+  },
+  "basket": {
+    "basket": "장바구니",
+    "emptyMessage": "장바구니가 비어 있습니다",
+    "continue": "계속 쇼핑",
+    "itemList": "품목 목록",
+    "orderSummary": "주문 요약",
+    "products": "제품",
+    "shipping": "배송",
+    "totalAmount": "총 금액",
+    "goToCheckout": "결제로 이동"
+  },
+  "about": {
+    "aboutUs": "회사 소개",
+    "description": "진실은 고통 그 자체가 아디피스 엘리트주의자의 뒤를 따른다는 것입니다. 그는 우리의 일을 싫어하고 진실의 고통을 따릅니다. 그는 비행이 쉬워 보이기 때문에 싫어하지만 고통은 흔히 볼 수 있는 분들의 고통, 고통과 쾌락의 구별, 고난의 필요성부터 설명하겠습니다. 그들은 언제든지 용서를 받거나, 고통에서 해방될 수밖에 없는데, 그것은 종종 육체의 선택입니다.",
+    "ourProduct": "외제품",
+    "beauty": "미용 제품",
+    "health": "건강 제품"
+  },
+  "contact": {
+    "contactUs": "문의하기",
+    "name": "이름",
+    "email": "이메일",
+    "message": "메시지",
+    "send": "보내기"
+  }
+}

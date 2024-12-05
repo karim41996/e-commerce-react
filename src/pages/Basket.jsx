@@ -3,9 +3,11 @@ import { Footer, Navbar } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, delCart } from "../redux/action";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Cart = () => {
   const state = useSelector((state) => state.handleCart);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const EmptyCart = () => {
@@ -13,9 +15,9 @@ const Cart = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12 py-5 bg-light text-center">
-            <h4 className="p-3 display-5">Your Cart is Empty</h4>
+            <h4 className="p-3 display-5"> {t("basket.emptyMessage")}</h4>
             <Link to="/" className="btn  btn-outline-dark mx-4">
-              <i className="fa fa-arrow-left"></i> Continue Shopping
+              <i className="fa fa-arrow-left"></i> {t("basket.continue")}
             </Link>
           </div>
         </div>
@@ -49,7 +51,7 @@ const Cart = () => {
               <div className="col-md-8">
                 <div className="card mb-4">
                   <div className="card-header py-3">
-                    <h5 className="mb-0">Item List</h5>
+                    <h5 className="mb-0"> {t("basket.itemList")}</h5>
                   </div>
                   <div className="card-body">
                     {state.map((item) => {
@@ -108,7 +110,7 @@ const Cart = () => {
                               <p className="text-start text-md-center">
                                 <strong>
                                   <span className="text-muted">{item.qty}</span>{" "}
-                                  x ${item.price}
+                                  x {item.price} ₮
                                 </strong>
                               </p>
                             </div>
@@ -124,23 +126,24 @@ const Cart = () => {
               <div className="col-md-4">
                 <div className="card mb-4">
                   <div className="card-header py-3 bg-light">
-                    <h5 className="mb-0">Order Summary</h5>
+                    <h5 className="mb-0"> {t("basket.orderSummary")}</h5>
                   </div>
                   <div className="card-body">
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                        Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                        {t("basket.products")} ({totalItems})
+                        <span>{Math.round(subtotal)} ₮</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center px-0">
-                        Shipping
-                        <span>${shipping}</span>
+                        {t("basket.shipping")}
+                        <span>{shipping} ₮</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                         <div>
-                          <strong>Total amount</strong>
+                          <strong> {t("basket.totalAmount")}</strong>
                         </div>
                         <span>
-                          <strong>${Math.round(subtotal + shipping)}</strong>
+                          <strong>{Math.round(subtotal + shipping)} ₮</strong>
                         </span>
                       </li>
                     </ul>
@@ -149,7 +152,7 @@ const Cart = () => {
                       to="/checkout"
                       className="btn btn-dark btn-lg btn-block"
                     >
-                      Go to checkout
+                      {t("basket.goToCheckout")}
                     </Link>
                   </div>
                 </div>
@@ -165,11 +168,10 @@ const Cart = () => {
     <>
       <Navbar />
       <div className="container my-3 py-3">
-        <h1 className="text-center">Cart</h1>
+        <h1 className="text-center"> {t("basket.basket")}</h1>
         <hr />
         {state.length > 0 ? <ShowCart /> : <EmptyCart />}
       </div>
-      <Footer />
     </>
   );
 };

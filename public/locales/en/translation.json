@@ -1,0 +1,102 @@
+{
+  "login": {
+    "welcome": "Welcome to our app!",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "navbar": {
+    "name": "A4YOU&ME STORE",
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "cart": "Cart"
+  },
+  "home": {
+    "title": "New Season Arrivals",
+    "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+  },
+  "productComp": {
+    "latestProducts": "Latest Products",
+    "all": "All",
+    "beauty": "Beauty",
+    "health": "Health",
+    "detail": "Detail",
+    "basket": "Add to Basket"
+  },
+  "product": {
+    "addToBasket": "Add to Basket",
+    "goToBasket": "Go to Basket",
+    "detail": "Detail",
+    "youMayAlsoLike": "You may also Like"
+  },
+  "pageNotFound": {
+    "errorCode": "404",
+    "errorName": "Page Not Found",
+    "description": "Go back to Home"
+  },
+  "checkOut": {
+    "emptyBasket":"No item in Basket",
+    "checkOut": "Checkout",
+    "continue": "Continue Shopping",
+    "orderSummary": "Order Summary",
+    "products": "Products",
+    "shipping": "Shipping",
+    "totalAmount": "Total amount",
+    "billingAddress": "Billing address",
+    "firstName": "First name",
+    "validFirstName": "Valid first name is required.",
+    "lastName": "Last name",
+    "validLastName": "Valid last name is required.",
+    "email": "Email",
+    "validEmail": " Please enter a valid email address for shipping updates.",
+    "address": "Address",
+    "enterShipping": "Please enter your shipping address.",
+    "address2": "Address 2 (Optional)",
+    "country": "Country",
+    "choose": "Choose...",
+    "validCountry": "Please select a valid country.",
+    "state": "State",
+    "validState": "Please provide a valid state.",
+    "zip": "Zip",
+    "validZip": "Zip code required.",
+    "payment": "Payment",
+    "nameOnCard": "Name on card",
+    "fullNamePlaceHolder": "Full name as displayed on card",
+    "validCardName": "Name on card is required",
+    "creditCardNumber": "Credit card number",
+    "validCreditCardNumber": "Credit card number is required",
+    "expiration": "Expiration",
+    "validExpiration": "Expiration date required",
+    "cvv": "CVV",
+    "validCvv": "Security code required",
+    "continueCheckout": "Continue to checkout"
+  },
+  "basket": {
+    "basket": "Basket",
+    "emptyMessage": "Your Basket is Empty",
+    "continue": "Continue Shopping",
+    "itemList": "Item List",
+    "orderSummary": "Order Summary",
+    "products": "Products",
+    "shipping": "Shipping",
+    "totalAmount": "Total amount",
+    "goToCheckout": "Go to checkout"
+  },
+  "about": {
+    "aboutUs": "About Us",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum facere doloremque veritatis odit similique sequi. Odit amet fuga nam quam quasi facilis sed doloremque saepe sint perspiciatis explicabo totam vero quas provident ipsam, veritatis nostrum velit quos recusandae est mollitia esse fugit dolore laudantium. Ex vel explicabo earum unde eligendi autem praesentium, doloremque distinctio nesciunt porro tempore quis eaque labore voluptatibus ea necessitatibus exercitationem tempora molestias. Ad consequuntur veniam sequi ullam tempore vel tenetur soluta dolore sunt maxime aliquam corporis est, quo saepe dolorem optio minus sint nemo totam dolorum! Reprehenderit delectus expedita a alias nam recusandae illo debitis repellat libero, quasi explicabo molestiae saepe, dolorem tempore itaque eveniet quam dignissimos blanditiis excepturi harum numquam vel nihil? Ipsum",
+    "ourProduct":"Out Products",
+    "beauty":"Beauty Products",
+    "health":"Health Products"
+  },
+  "contact":{
+    "contactUs":"Contact Us",
+    "name":"Name",
+    "email":"Email",
+    "message":"Message",
+    "send":"Send"
+  }
+}
