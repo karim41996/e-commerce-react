@@ -1,9 +1,4 @@
 {
-  "login": {
-    "welcome": "저희 앱에 오신 것을 환영합니다!",
-    "login": "로그인",
-    "logout": "로그아웃"
-  },
   "navbar": {
     "name": "A4YOU&ME STORE",
     "home": "홈",
@@ -98,5 +93,20 @@
     "email": "이메일",
     "message": "메시지",
     "send": "보내기"
+  },
+  "register": {
+    "register": "등록",
+    "fullName": "성함",
+    "emailAddress": "이메일 주소",
+    "password": "비밀번호",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "login": "로그인"
+  },
+  "login": {
+    "login": "로그인",
+    "email": "이메일 주소",
+    "password": "비밀번호",
+    "newHere": "여기에 새로 오세요",
+    "register": "등록"
   }
 }

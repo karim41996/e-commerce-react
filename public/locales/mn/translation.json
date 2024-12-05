@@ -1,9 +1,4 @@
 {
-  "login": {
-    "welcome": "Манай дэлгүүрт ​​тавтай морил!",
-    "login": "Нэвтрэх",
-    "гарах": "Гарах"
-  },
   "navbar": {
     "name": "A4YOU&ME STORE",
     "home": "Нүүр",
@@ -98,5 +93,20 @@
     "email": "И-мэйл",
     "message": "Бичвэр",
     "send": "Илгээх"
+  },
+  "register": {
+    "register": "Бүртгүүлэх",
+    "fullName": "Бүтэн нэр",
+    "emailAddress": "И-мэйл хаяг",
+    "password": "Нууц үг",
+    "hasAccount": "Бүртгүүлсэн бол?",
+    "login": "Нэвтрэх"
+  },
+  "login": {
+    "login": "Нэвтрэх",
+    "email": "Имэйл хаяг",
+    "password": "Нууц үг",
+    "newHere": "Бүртгүүлж байгаагүй бол",
+    "register": "Бүртгүүлэх"
   }
 }

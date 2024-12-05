@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer, Navbar } from "../components";
+import { Navbar } from "../components";
 import { useTranslation } from "react-i18next";
 
 const AboutPage = () => {

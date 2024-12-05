@@ -1,9 +1,4 @@
 {
-  "login": {
-    "welcome": "Welcome to our app!",
-    "login": "Login",
-    "logout": "Logout"
-  },
   "navbar": {
     "name": "A4YOU&ME STORE",
     "home": "Home",
@@ -98,5 +93,20 @@
     "email":"Email",
     "message":"Message",
     "send":"Send"
+  },
+  "register":{
+    "register":"Register",
+    "fullName":"Full Name",
+    "emailAddress":"Email address",
+    "password":"Password",
+    "hasAccount":"Already has an account?",
+    "login":"Login"
+  },
+  "login":{
+    "login":"Login",
+    "email":"Email address",
+    "password":"Password",
+    "newHere":"New Here",
+    "register":"Register"
   }
 }

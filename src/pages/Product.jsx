@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 import { useTranslation } from "react-i18next";
-import { Footer, Navbar } from "../components";
+import { Navbar } from "../components";
 
 const Product = () => {
   const { id } = useParams();
