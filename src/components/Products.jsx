@@ -24,6 +24,7 @@ const Products = () => {
     const getProducts = async () => {
       setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products/");
+      console.log("response", await response.clone().json());
       if (componentMounted) {
         setData(await response.clone().json());
         setFilter(await response.json());
@@ -73,7 +74,6 @@ const Products = () => {
   };
 
   const ShowProducts = () => {
-
     return (
       <>
         <div className="buttons text-center py-5">
@@ -105,12 +105,14 @@ const Products = () => {
               className="col-md-4 col-sm-6 col-xs-8 col-12 mb-4"
             >
               <div className="card text-center h-100" key={product.id}>
-                <img
-                  className="card-img-top p-3"
-                  src={product.image}
-                  alt="Card"
-                  height={300}
-                />
+                <a href={"/product/" + product.id}>
+                  <img
+                    className="card-img-top p-3"
+                    src={product.image}
+                    alt="Card"
+                    height={300}
+                  />
+                </a>
                 <div className="card-body">
                   <h5 className="card-title">
                     {product.title.substring(0, 12)}...

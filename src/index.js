@@ -14,7 +14,7 @@ import {
   ContactPage,
   Basket,
   Login,
-  Register,
+  // Register,
   Checkout,
   PageNotFound,
 } from "./pages";
@@ -35,7 +35,7 @@ root.render(
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/basket" element={<Basket />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/product/*" element={<PageNotFound />} />

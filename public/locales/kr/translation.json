@@ -107,6 +107,7 @@
     "email": "이메일 주소",
     "password": "비밀번호",
     "newHere": "여기에 새로 오세요",
-    "register": "등록"
+    "register": "등록",
+    "phone":"전화번호"
   }
 }

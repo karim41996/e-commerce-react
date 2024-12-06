@@ -107,6 +107,7 @@
     "email":"Email address",
     "password":"Password",
     "newHere":"New Here",
-    "register":"Register"
+    "register":"Register",
+    "phone":"Phone number"
   }
 }

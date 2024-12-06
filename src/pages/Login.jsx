@@ -5,7 +5,8 @@ import { useTranslation } from "react-i18next";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const { t } = useTranslation();
 
@@ -13,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      console.log("submit", { email, password });
+      console.log("submit", { phone, password });
     } catch (error) {
       console.log(error);
       alert(error.message);
@@ -22,7 +23,7 @@ const Login = () => {
     }
   };
 
-  const isFormValid = email.trim() !== "" && password.trim() !== "";
+  const isFormValid = phone.trim() !== "" && password.trim() !== "";
 
   return (
     <>
@@ -33,7 +34,7 @@ const Login = () => {
         <div class="row my-4 h-100">
           <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
             <form onSubmit={handleSubmit}>
-              <div class="my-3">
+              {/* <div class="my-3">
                 <label for="display-4">{t("login.email")}</label>
                 <input
                   type="email"
@@ -43,6 +44,17 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+              </div> */}
+              <div class="my-3">
+                <label for="display-4">{t("login.phone")}</label>
+                <input
+                  type="phone"
+                  class="form-control"
+                  id="floatingInput"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  style={{ '--placeholder-color': '#E0E0E0' }}
+                />
               </div>
               <div class="my-3">
                 <label for="floatingPassword display-4">{t("login.password")}</label>
@@ -50,12 +62,11 @@ const Login = () => {
                   type="password"
                   class="form-control"
                   id="floatingPassword"
-                  placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div className="my-3">
+              {/* <div className="my-3">
                 <p>
                 {t("login.newHere")}{" "}
                   <Link
@@ -65,7 +76,7 @@ const Login = () => {
                     {t("login.register")}
                   </Link>{" "}
                 </p>
-              </div>
+              </div> */}
               <div className="text-center">
                 <button
                   class="my-2 mx-auto btn btn-dark"

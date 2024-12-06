@@ -56,26 +56,30 @@ const Navbar = () => {
             <NavLink to="/login" className="btn btn-outline-dark m-2">
               <i className="fa fa-sign-in-alt mr-1"></i> {t("navbar.login")}
             </NavLink>
-            <NavLink to="/register" className="btn btn-outline-dark m-2">
+            {/* <NavLink to="/register" className="btn btn-outline-dark m-2">
               <i className="fa fa-user-plus mr-1"></i> {t("navbar.register")}
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/basket" className="btn btn-outline-dark m-2">
               <i className="fa fa-cart-shopping mr-1"></i> {t("navbar.cart")} (
               {state.length})
             </NavLink>
-          </div>
-          <div className="ml-3">
-            <select
-              className="form-select nav-item-style"
-              onChange={handleLanguageChange}
-              defaultValue={i18n.language}
-              style={{ width: "100px" }}
-            >
-              <option value="mn">MN</option>
-              <option value="en">EN</option>
-              <option value="kr">KR</option>
-              {/* Add more languages as needed */}
-            </select>
+            <div className="btn">
+              <select
+                className="form-select nav-item-style"
+                onChange={handleLanguageChange}
+                defaultValue={i18n.language}
+                style={{
+                  width: "100px",
+                  borderWidth: "1px",
+                  borderColor: "#000",
+                }}
+              >
+                <option value="mn">MN</option>
+                <option value="en">EN</option>
+                <option value="kr">KR</option>
+                {/* Add more languages as needed */}
+              </select>
+            </div>
           </div>
         </div>
       </div>
