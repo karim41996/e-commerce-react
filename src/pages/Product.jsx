@@ -4,11 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
-
-import { Footer, Navbar } from "../components";
+import { useTranslation } from "react-i18next";
+import { Navbar } from "../components";
 
 const Product = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
   const [product, setProduct] = useState([]);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -82,16 +83,16 @@ const Product = () => {
                 {product.rating && product.rating.rate}{" "}
                 <i className="fa fa-star"></i>
               </p>
-              <h3 className="display-6  my-4">${product.price}</h3>
+              <h3 className="display-6  my-4">{product.price} ₮</h3>
               <p className="lead">{product.description}</p>
               <button
                 className="btn btn-outline-dark"
                 onClick={() => addProduct(product)}
               >
-                Add to Cart
+                {t("product.addToBasket")}
               </button>
-              <Link to="/cart" className="btn btn-dark mx-3">
-                Go to Cart
+              <Link to="/basket" className="btn btn-dark mx-3">
+                {t("product.goToBasket")}
               </Link>
             </div>
           </div>
@@ -151,13 +152,13 @@ const Product = () => {
                       to={"/product/" + item.id}
                       className="btn btn-dark m-1"
                     >
-                      Buy Now
+                      {t("product.detail")}
                     </Link>
                     <button
                       className="btn btn-dark m-1"
                       onClick={() => addProduct(item)}
                     >
-                      Add to Cart
+                      {t("product.addToBasket")}
                     </button>
                   </div>
                 </div>
@@ -175,18 +176,13 @@ const Product = () => {
         <div className="row">{loading ? <Loading /> : <ShowProduct />}</div>
         <div className="row my-5 py-5">
           <div className="d-none d-md-block">
-          <h2 className="">You may also Like</h2>
-            <Marquee
-              pauseOnHover={true}
-              pauseOnClick={true}
-              speed={50}
-            >
+            <h2 className=""> {t("product.youMayAlsoLike")}</h2>
+            <Marquee pauseOnHover={true} pauseOnClick={true} speed={50}>
               {loading2 ? <Loading2 /> : <ShowSimilarProduct />}
             </Marquee>
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

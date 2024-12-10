@@ -12,14 +12,15 @@ import {
   Products,
   AboutPage,
   ContactPage,
-  Cart,
+  Basket,
   Login,
-  Register,
+  // Register,
   Checkout,
   PageNotFound,
 } from "./pages";
 import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -32,9 +33,9 @@ root.render(
           <Route path="/product/:id" element={<Product />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/basket" element={<Basket />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/product/*" element={<PageNotFound />} />
